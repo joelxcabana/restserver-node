@@ -8,7 +8,7 @@ const usuariosGet =async  (req = request, res = response) => {
 
    const { limite = 5, desde = 0 } = req.query
    const query = {
-       estado:true
+    status:true
    }
    
    const [usuarios,total] = await Promise.all([
@@ -70,10 +70,13 @@ const usuariosPatch = (req, res = response) => {
     });
 }
 
-const usuariosDelete = (req, res = response) => {
-    res.json({
-        msg: 'delete API - usuariosDelete'
-    });
+const usuariosDelete = async (req, res = response) => {
+
+    const {id} = req.params
+
+    const usuario = await Usuario.findByIdAndUpdate(id,{status:false})
+
+    res.json(usuario);
 }
 
 
