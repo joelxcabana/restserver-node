@@ -41,7 +41,7 @@ const usuariosPut = async (req, res = response) => {
 
     const { id } = req.params;
 
-    const { password,google, ...resto } = req.body
+    const { _id,password,google, ...resto } = req.body
 
     //validar con base de datos
     if(password){
