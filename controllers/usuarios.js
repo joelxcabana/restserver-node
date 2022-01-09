@@ -76,6 +76,8 @@ const usuariosDelete = async (req, res = response) => {
 
     const usuario = await Usuario.findByIdAndUpdate(id,{status:false})
 
+    console.log("usuario logeado",req.usuario)
+
     res.json(usuario);
 }
 
