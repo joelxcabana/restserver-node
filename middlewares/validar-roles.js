@@ -8,7 +8,7 @@ const esAdminRole = (req,res,next) => {
 
     const { rol, name} = req.usuario
 
-    if(rol !== 'ADMIN_ROLE'){
+    if(rol !== 'ADMIN_ROL'){
         return res.status(401).json({
             msg:`${name} no es admin`
         })
