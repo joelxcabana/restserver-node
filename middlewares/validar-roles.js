@@ -1,5 +1,3 @@
-
-
 const esAdminRole = (req,res,next) => {
 
     if(!req.usuario){
