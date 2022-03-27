@@ -7,8 +7,19 @@ const cargarArchivo = (req,res)=>{
       return;
     }
 
-    const {archivo} = req.files;
-  
+    const {archivo} = req.files
+    const nombreCortado = archivo.name.split('.')
+    const extension = nombreCortado[nombreCortado.length -1]
+    
+    //validar extension
+    const extensionesValidas = ['png','jpge','gif','jpg']
+
+    if(!extensionesValidas.includes(extension)){
+        res.status(400).json({msg:`la extension ${extension} no es valida, extensiones validasd ${extensionesValidas}`});
+    }
+
+
+    /*
     const uploadPath = path.join(__dirname,'../uploads/',archivo.name);
   
     archivo.mv(uploadPath, (err) => {
@@ -18,6 +29,7 @@ const cargarArchivo = (req,res)=>{
   
       res.json({msg:`el archivo se subio a ${uploadPath}`});
     });
+    */
 }
 
 
