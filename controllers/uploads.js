@@ -1,4 +1,5 @@
 const path = require('path')
+const { v4: uuidv4 } = require('uuid');
 
 const cargarArchivo = (req,res)=>{
   
@@ -18,9 +19,8 @@ const cargarArchivo = (req,res)=>{
         res.status(400).json({msg:`la extension ${extension} no es valida, extensiones validasd ${extensionesValidas}`});
     }
 
-
-    /*
-    const uploadPath = path.join(__dirname,'../uploads/',archivo.name);
+    const nombreTemp = uuidv4() + '.' + extension
+    const uploadPath = path.join(__dirname,'../uploads/',nombreTemp);
   
     archivo.mv(uploadPath, (err) => {
       if (err) {
@@ -29,7 +29,7 @@ const cargarArchivo = (req,res)=>{
   
       res.json({msg:`el archivo se subio a ${uploadPath}`});
     });
-    */
+
 }
 
 
