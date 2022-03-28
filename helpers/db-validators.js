@@ -37,12 +37,20 @@ const existeProducto = async (id)=>{
     }
 }
 
+const collectionPermitida = async (collection = '',collections = []) =>{
+    const incluida = collections.includes(collection)
+    if(!incluida){
+        throw new Error(`Collection ${incluida} no incluida`)
+    }
 
+    return true
+}
 
 module.exports = {
     esRolValido,
     emailExiste,
     existeUserById,
     existeCategoria,
-    existeProducto
+    existeProducto,
+    collectionPermitida
 }
