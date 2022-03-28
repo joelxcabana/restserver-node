@@ -9,7 +9,7 @@ const cargarArchivo = async(req,res)=>{
     }
 
     try {
-      const pathCompleto = await subirArchivo(req.files,['txt','md'])
+      const pathCompleto = await subirArchivo(req.files,undefined,'imgs')
       res.json({
         pathCompleto
       })
